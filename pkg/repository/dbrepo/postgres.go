@@ -65,7 +65,7 @@ func (m *postgresDBrepo) Authentication(email, testPassword string) (int, string
 	err := row.Scan(&id, &hashedPass)
 
 	if err != nil {
-		return id, "dupa", err
+		return id, "ugh", err
 	}
 
 	err = bcrypt.CompareHashAndPassword([]byte(hashedPass), []byte(testPassword))
@@ -73,7 +73,7 @@ func (m *postgresDBrepo) Authentication(email, testPassword string) (int, string
 		return 0, "", errors.New("incorrenct password")
 
 	} else if err != nil {
-		return 0, "cipa", err
+		return 0, "nope", err
 	}
 
 	return id, hashedPass, nil
